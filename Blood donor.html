@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Emergency Blood Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🩸 Emergency Blood Request & Donor Finder</h1>
+<!-- ================= LOGIN SECTION ================= -->
+<section id="loginPage" class="login-container">
+
+    <!-- Image Side -->
+    <div class="login-image">
+        <img src="blood.png" alt="Blood Donation">
+    </div>
+
+    <!-- Login Box -->
+    <section class="card" id="loginSection">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Enter Email"><br>
+        <input type="password" id="loginPassword" placeholder="Enter Password"><br>
+        <button onclick="login()">Login</button><br>
+
+        <p>Don't have an account?</p><br>
+        <button onclick="showRegister()">Register Here</button>
+    </section>
+
+</section>
+
+<!-- ================= REGISTER SECTION ================= -->
+<section class="card" id="registerSection" style="display:none;">
+    <h2>Register</h2>
+    <input type="email" id="registerEmail" placeholder="Enter Email"><br>
+    <input type="password" id="registerPassword" placeholder="Create Password"><br>
+    <button onclick="register()">Register</button><br>
+    <button onclick="showLogin()">Back to Login</button><br>
+</section>
+
+<!-- ================= MAIN WEBSITE ================= -->
+<div id="mainContent" style="display:none;">
+
+    <!-- Blood Group Selection -->
+    <section class="card">
+        <h2>Select Blood Group</h2>
+        <select id="bloodGroup">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+
+        <input type="text" id="userCity" placeholder="Enter Your City"><br>
+        <button onclick="searchDonors()">Find Donors</button>
+        <button class="emergency" onclick="activateEmergency()">🚨 Emergency Mode</button>
+
+        <p id="compatibility"></p>
+    </section>
+
+    <!-- Donor List -->
+    <section class="card">
+        <h2>Available Donors</h2>
+        <div id="donorList"></div>
+    </section>
+
+    <!-- ================= REGISTER AS DONOR ================= -->
+    <section class="card">
+        <h2>Register as Donor</h2>
+
+        <input type="text" id="donorName" placeholder="Full Name"><br>
+        
+        <select id="donorBloodGroup">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select><br>
+
+        <input type="text" id="donorCity" placeholder="City"><br>
+        <input type="text" id="donorPhone" placeholder="Phone Number"><br>
+
+        <button onclick="registerAsDonor()">Register as Donor</button>
+    </section>
+
+    <!-- Eligibility Checker -->
+    <section class="card">
+        <h2>Donor Eligibility Checker</h2>
+        <label>Age: </label>
+        <input type="number" id="age" placeholder="Age"><br>
+        <label>Weight: </label>
+        <input type="number" id="weight" placeholder="Weight (kg)"><br>
+        <label>Date of Last Donation: </label>
+        <input type="date" id="lastDonation"><br>
+        <button onclick="checkEligibility()">Check Eligibility</button>
+        <p id="eligibilityResult"></p>
+    </section>
+
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
